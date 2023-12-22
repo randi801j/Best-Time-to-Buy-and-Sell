@@ -1,0 +1,26 @@
+var maxProfit = function(prices) {
+    if(!prices|| prices.length <2)
+    return 0;
+    
+    let minPrice = prices [0]// start min price on the first day
+    let maxProfit = 0; // we have not made any money yet so we start a 0 dollars
+
+    for (let i = 1;i<prices.length;i++){
+        minPrice = Math.min (minPrice,prices[i]); // updating minPrice to the new min price so it can be compared
+// Math.min takes the two numbers and returns the lowest one : comparing(7 and 1)
+// 7 being the first price and 1 being the second price
+        maxProfit = Math.max(maxProfit,prices[i]-minPrice);// updating max profit by taking new min price against the 3 day price
+// maxProfit= Math.max(0,5-1) then taking the Max number from that and setting it as maxProfit
+    }
+    return maxProfit;
+
+
+};
+
+//Approach
+//check if if there is prices for the day
+// create place holders to hold min prices and max prices
+// loop through each day to see the prices each day
+// update prices as we loop through, save the lowest price
+// sell the sock and see if we make any profits
+// return max profit
